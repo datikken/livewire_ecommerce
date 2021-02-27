@@ -3,7 +3,6 @@ on: [ push ]
 
 jobs:
   tests:
-
     runs-on: ${{ matrix.os}}
     strategy:
       fail-fast: false
@@ -86,9 +85,10 @@ jobs:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: execute ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
+          command: pwd
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          run: whoami
