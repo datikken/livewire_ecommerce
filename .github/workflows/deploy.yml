@@ -87,7 +87,9 @@ jobs:
       - name: execute ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: pwd
+          command:
+            cd jsux.fun
+            git pull
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
