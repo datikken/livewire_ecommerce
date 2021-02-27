@@ -86,7 +86,6 @@ jobs:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
 
       - name: execute ssh
-        uses: ./
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
